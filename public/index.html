@@ -5,10 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snow Ball</title>
+    
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="js/app.js" defer></script>
 </head>
 <body>
+    <div class="login">
+        <div class="leftSide">
+            <div class="form">
+                <img src="image/snowball.PNG" alt="snowball">
+                <h1>Snowball</h1>
+                <h3>Log In</h3>
+                <div class="info">
+                    <input type="text" placeholder="Username">
+                    <input type="password" name="password" id="password" placeholder="Password">
+                </div>
+                <button type="submit">Log In</button>
+            </div> 
+        </div>
+        <div class="rightSide">
+            <h3>Log Up</h3>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="menu">
+            
+        </div>
+        <div class="main">
+            <div class="chatbox"></div>
+            <form action="" name="message">
+                <button><i class="fa fa-bold"></i></button>
+                <button><i class="fa fa-italic"></i></button>
+                <button><i class="fa fa-underline"></i></button>
+                <input type="text" name="usermsg" id="usermsg">
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
     
 </body>
 </html>

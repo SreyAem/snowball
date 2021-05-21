@@ -7,4 +7,11 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.static('public'));
 
-app.get('/', (req, res) => res.send("Hello Project"))
+// app.get('/', (req, res) => res.send("Hello Project"));
+
+let users = [
+    {user: "A", password: "123"},
+    {user: "B", password: "567"}
+];
+
+app.get('/users', (req, res) => res.send(users));
