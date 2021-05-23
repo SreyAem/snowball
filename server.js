@@ -10,8 +10,25 @@ app.use(express.static('public'));
 // app.get('/', (req, res) => res.send("Hello Project"));
 
 let users = [
-    {user: "A", password: "123"},
-    {user: "B", password: "567"}
+    {username: "A", password: "123"},
+    {username: "B", password: "567"}
 ];
 
+let messages = [
+    {username: "A", text: "Hello"},
+    {username: "B", text: "How are you"}
+]
+
 app.get('/users', (req, res) => res.send(users));
+app.get('/messages', (req, res) => res.send(messages));
+
+app.post('/messages', (req, res) => {
+    console.log(req.body)
+    let message = {
+        username: req.body.username,
+        text: req.body.text
+    }
+    messages.push(message);
+    res.send(messages);
+});
+
