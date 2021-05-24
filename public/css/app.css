@@ -3,18 +3,19 @@
     margin: 0;
 }
 .login{
-    /* display: flex; */
-    display: none;
+    display: flex;
+    /* display: none; */
     background-color: rgb(220, 218, 221);
     color: rgb(86, 2, 165);
 }
 .leftSide{
-    width: 90%;
+    width: 80%;
     display: flex;
     padding: 70px;
 }
 .rightSide{
-    width: 10%;
+    width: 20%;
+
 }
 .form{
     justify-content: center;
@@ -43,9 +44,10 @@ form button, form input{
     margin: 0 7px;
 }
 .container{
-    display: flex;
+    /* display: flex; */
+    display: none;
 }
-form{
+main form{
     display: flex;
     padding: 15px 25px;
     margin-top: 45px;

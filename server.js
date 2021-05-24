@@ -14,16 +14,24 @@ let users = [
     {username: "B", password: "567"}
 ];
 
-let messages = [
-    {username: "A", text: "Hello"},
-    {username: "B", text: "How are you"}
-]
+let userlog = {};
+
+let messages = [];
 
 app.get('/users', (req, res) => res.send(users));
 app.get('/messages', (req, res) => res.send(messages));
 
-app.post('/messages', (req, res) => {
+app.post('/users', (req, res) => {
     console.log(req.body)
+    let user = {
+        username: req.body.username,
+        text: req.body.password
+    }
+    users.push(user);
+    res.send(users);
+});
+
+app.post('/messages', (req, res) => {
     let message = {
         username: req.body.username,
         text: req.body.text
