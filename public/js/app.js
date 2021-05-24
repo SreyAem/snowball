@@ -2,33 +2,34 @@
 function checkUser(res){
     let users = res.data;
     for (let user of users){
-        console.log(username.value)
         if (user.username === username.value && user.password === password.value){
-            document.querySelector('.login').style.display = "none";
-            document.querySelector('.container').style.display = "flex";
+            login.style.display = "none";
+            container.style.display = "flex";
         }
     }
-}
+};
 
 function displayText(response){
     let messages = response.data;
-    document.querySelector('.chat').remove()
-    let chat = document.createElement('div');
+    console.log(messages)
+    if (chat !== null){
+        chat.remove()
+    }
+    let store = document.createElement('div');
+    store.className = "chat"
     for (message of messages){
         let p = document.createElement('p');
-        p.textContent =  message.username + " : " + message.text
-        chat.appendChild(p);
+        p.textContent =  message.username + " : " + message.text;
+        store.appendChild(p);
     }
-    chatbox.appendChild(chat);
+    chatbox.appendChild(store);
     
     
-}
+};
 
 function sentUser(event){
-    event.preventdefault()
-    const nameinput = document.querySelector('#user').value;
-    const passwordinput = document.querySelector('#pass').value;
-    let user = {username: nameinput, password: passwordinput}
+    event.preventDefault()
+    let user = {username: nameinput.value, password: passwordinput.value}
 
     const url = "http://localhost:5000/users"
     axios
@@ -37,9 +38,8 @@ function sentUser(event){
 }
 
 function saveText(event){
-    const usermsg = document.querySelector('#usermsg').value;
-    let message = {username: username, text: usermsg}
-
+    event.preventDefault()
+    let message = {username: username.value, text: usermsg.value}
     const url = "http://localhost:5000/messages"
     axios
     .post(url,message)
@@ -60,20 +60,23 @@ function loadData(){
     .then(displayText);
 }
 
+let nameinput = document.querySelector('#user');
+let passwordinput = document.querySelector('#pass');
+let usermsg = document.querySelector('#usermsg');
 let chatbox = document.querySelector('.chatbox');
 let username = document.querySelector('#username');
 let password = document.querySelector('#password');
-let login = document.querySelector('.login')
-let container = document.querySelector('.container')
+let login = document.querySelector('.login');
+let container = document.querySelector('.container');
+let chat = document.querySelector('.chat');
 
 const save = document.querySelector("#save");
 save.addEventListener('click', saveText);
 
-// const btnlog = document.querySelector('#btnlog');
-// btnlog.addEventListener('click', checkUser);
+const btnlog = document.querySelector('#btnlog');
+btnlog.addEventListener('click', loadUser);
 
 const btnup = document.querySelector('#logup');
 btnup.addEventListener('click', sentUser);
 
-loadUser()
-loadData()
+loadData();
