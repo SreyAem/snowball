@@ -19,40 +19,55 @@
                 <img src="image/snowball.PNG" alt="snowball">
                 <h1>Snowball</h1>
                 <h3>Log In</h3>
-                <div class="info">
+                <form class="info">
                     <input type="text" placeholder="Username" id="username">
                     <input type="password" name="password" id="password" placeholder="Password">
-                </div>
+                </form>
                 <button type="submit" id="btnlog">Log In</button>
             </div> 
         </div>
         <div class="rightSide">
-            <h3>Log Up</h3>
-            <form action="" id="logup">
-                <h3>Complete your info</h3>
-                <br><label for="user">Username: </label><br>
-                <input type="text" id="user" placeholder="Username.."><br>
-                <label for="pass">Password: </label><br>
-                <input type="password" name="pass" id="pass"><br>
-                <button type="submit" id="log up">Log Up</button>
-            </form>
+            <button id="btnlogup">Log up</button>
         </div>
+    </div>
+
+    <div class="logup">
+        <h1>Welcome to snowball</h1>
+        <form action="" id="logup">
+            <h3>Complete your info</h3>
+            <!-- <br><label for="user">Username: </label><br> -->
+            <input type="text" id="user" placeholder="Username..."><br>
+            <!-- <label for="pass" id="e">Password: </label><br> -->
+            <input type="password" name="pass" id="pass" placeholder="Password..."><br>
+            <input type="password" name="confirm" id="confirm" placeholder="Confirm password..."><br>
+            <input type="file" name="pic" id="pic" ><br>
+            <label for="file">(Choose your Profile)</label><br>
+            <button type="submit" id="btnup">Log Up</button>
+        </form>
     </div>
 
     <div class="container">
         <div class="menu">
-            
+            <div class="profile">
+                <img src="" alt="">
+            </div>
         </div>
         <div class="main">
             <div class="chatbox">
-                <div class="store"></div>
+                
             </div>
-            <form action="" name="message">
-                <button><i class="fa fa-bold"></i></button>
-                <button><i class="fa fa-italic"></i></button>
-                <button><i class="fa fa-underline"></i></button>
-                <input type="text" name="usermsg" id="usermsg">
-                <button type="submit" id="save">Send</button>
+            <form action="" id="message">
+                <div class="item">
+                    <button><i class="fa fa-bold"></i></button>
+                    <button><i class="fa fa-italic"></i></button>
+                    <button><i class="fa fa-underline"></i></button>
+                </div>
+                
+                <div  id="msg">
+                    <input type="text" name="usermsg" id="usermsg">
+                    <button type="submit" id="save">Send</button>
+                </div>
+                
             </form>
         </div>
     </div>

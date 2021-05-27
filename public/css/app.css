@@ -1,6 +1,7 @@
-* {
+body {
     padding: 0;
     margin: 0;
+    background-color: rgb(220, 218, 221);
 }
 .login{
     display: flex;
@@ -8,14 +9,23 @@
     background-color: rgb(220, 218, 221);
     color: rgb(86, 2, 165);
 }
+#label{
+    text-align: left;
+}
+.logup{
+    text-align: center;
+    display: none;
+    /* display: block; */
+}
 .leftSide{
-    width: 80%;
+    width: 90%;
     display: flex;
     padding: 70px;
 }
 .rightSide{
-    width: 20%;
-
+    width: 10%;
+    text-align: right;
+    padding: 0px;
 }
 .form{
     justify-content: center;
@@ -38,10 +48,13 @@ button{
     border-radius: 10px;
 }
 button[type=submit]{
-    width: 15%;
+    width: 10%;
 }
 form button, form input{
-    margin: 0 7px;
+    margin: 7px;
+}
+.logup h1{
+    margin: 50px;
 }
 .container{
     /* display: flex; */
@@ -64,8 +77,34 @@ main form{
     padding: 0 30px;
 }
 .chatbox{
-    text-align: left;
+    padding: 0 50px;
     height: 80vh;
 }
+#message{
+    display: flex;
+    justify-content: space-between;
+}
+#msg{
+    width: 70%;
+    text-align: right;
+}
+#msg input{
+    width: 70%;
+}
+.item{
+    width: 30%;
+}
+#btnlogup{
+    width: 80%;
+    margin: 10px 5px;
+}
+.item button{
+    width: 15%;
+}
+#label{
+    text-align: left;
+    margin-left: 0;
+}
+
 
 
