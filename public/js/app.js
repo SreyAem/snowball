@@ -8,12 +8,8 @@ function checkUser(res){
             container.style.display = "flex";
             loadData()
         }
-        // else{
-        //     document.querySelector('.info').reset();
-        // }
     }
-    
-    
+     
 };
 
 function createUser(res){
@@ -32,7 +28,8 @@ function logupUser(){
 }
 
 function displayText(response){
-   
+
+    
     let messages = response.data;
     let chat = document.querySelector('.chat');
     if (messages.length > 0){
@@ -41,23 +38,91 @@ function displayText(response){
             chat.remove()
         }
 
+        let colorinput = document.getElementById('favcolor').value;
         let store = document.createElement('div');
         store.className = "chat"
         for (message of messages){
+
+            let div = document.createElement('div');
+            div.className = "boxleft"
             let p = document.createElement('p');
-            p.textContent =  message.username + " : " + message.text;
+            p.textContent =  message.text;
+            let span = document.createElement('div');
+            span.textContent = message.username + ",      " + message.time;
+            p.style.fontWeight = message.bold;
+            p.style.fontStyle = message.italic;
+            p.style.textDecoration = message.underline;
+
             if (message.username === username.value){
+                div.className = "boxright"
                 p.style.textAlign = "right"
+                span.style.textAlign = "right"
+                p.style.backgroundColor = colorinput
             }
-            store.appendChild(p);
+            store.appendChild(span)
+            div.appendChild(p)
+            store.appendChild(div);
+            
         }
         chatbox.appendChild(store);
         document.querySelector('#message').reset();
+
+        let  btn =document.getElementById("usermsg");
+        btn.style.fontWeight = 'normal';
+        btn.style.fontStyle = 'normal';
+        btn.style.textDecoration = 'none';
+        underlineStyle = "none";
+        boldStyle = "normal";
+        italicStyle = "normal;"
     }
 };
 
+function bold(event) {
+    event.preventDefault()
+    let  btn =document.getElementById("usermsg") ;
+ 
+    if(btn.style.fontWeight == 'normal'){
+        btn.style.fontWeight = 'bold';
+        boldStyle = "bold"
+    }
+    else{
+        btn.style.fontWeight = 'normal';
+        boldStyle = "normal"
+    }
+}
+
+function italic(event) {
+    event.preventDefault()
+    let  btn =document.getElementById("usermsg") ;
+  
+    if(btn.style.fontStyle == 'normal'){
+        btn.style.fontStyle = 'italic';
+        italicStyle = "italic"
+    }
+    else{
+        btn.style.fontStyle = 'normal';
+        italicStyle = "normal"
+    }
+}
+
+function underline(event) {
+    event.preventDefault()
+    let  btn =document.getElementById("usermsg") ;
+  
+    if(btn.style.textDecoration == 'none'){
+        btn.style.textDecoration = 'underline';
+        underlineStyle = "underline"
+    }
+    else{
+        btn.style.textDecoration = 'none';
+        underlineStyle = "none"
+    }
+}
+
+
 function sentUser(event){
     event.preventDefault()
+    
     if (passwordinput.value === confirmpass.value){
         let user = {username: nameinput.value, password: passwordinput.value, pic: pic.value};
 
@@ -74,8 +139,18 @@ function sentUser(event){
 
 function saveText(event){
     event.preventDefault()
+    let today = new Date();
+    let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    
 
-    let message = {username: username.value, text: usermsg.value}
+    let message = {
+        username: username.value, 
+        text: usermsg.value,
+        bold: boldStyle,
+        italic: italicStyle,
+        underline: underlineStyle,
+        time: time,
+    }
     const url = "http://localhost:5000/messages"
     axios
     .post(url,message)
@@ -107,7 +182,6 @@ function loadData(){
     .then(displayText);
 }
 
-// setInterval(loadData, 1000);
 
 let nameinput = document.querySelector('#user');
 let passwordinput = document.querySelector('#pass');
@@ -121,6 +195,10 @@ let logup = document.querySelector('.logup');
 let confirmpass = document.querySelector('#confirm');
 let pic = document.querySelector('#pic');
 
+let underlineStyle = "none";
+let boldStyle = "normal";
+let italicStyle = "normal;";
+
 const btnlogup = document.querySelector('#btnlogup');
 btnlogup.addEventListener('click', logupUser);
 
@@ -132,5 +210,14 @@ btnlog.addEventListener('click', loadUser);
 
 const btnup = document.querySelector('#btnup');
 btnup.addEventListener('click', sentUser);
+
+const btnB = document.querySelector("#bold");
+btnB.addEventListener('click', bold);
+
+const btnI = document.querySelector('#italic');
+btnI.addEventListener('click', italic);
+
+const btnU = document.querySelector('#underline');
+btnU.addEventListener('click', underline);
 
 loadData();

@@ -35,9 +35,7 @@
         <h1>Welcome to snowball</h1>
         <form action="" id="logup">
             <h3>Complete your info</h3>
-            <!-- <br><label for="user">Username: </label><br> -->
             <input type="text" id="user" placeholder="Username..."><br>
-            <!-- <label for="pass" id="e">Password: </label><br> -->
             <input type="password" name="pass" id="pass" placeholder="Password..."><br>
             <input type="password" name="confirm" id="confirm" placeholder="Confirm password..."><br>
             <input type="file" name="pic" id="pic" ><br>
@@ -49,7 +47,11 @@
     <div class="container">
         <div class="menu">
             <div class="profile">
-                <img src="" alt="">
+                <img src="image/snowball.PNG" alt="profile" id="profile">
+            </div>
+            <div class="label">
+                <label for="favcolor">Select theme color:</label>
+                <input type="color" id="favcolor" name="favcolor" value="#F8B8FF">
             </div>
         </div>
         <div class="main">
@@ -58,9 +60,9 @@
             </div>
             <form action="" id="message">
                 <div class="item">
-                    <button><i class="fa fa-bold"></i></button>
-                    <button><i class="fa fa-italic"></i></button>
-                    <button><i class="fa fa-underline"></i></button>
+                    <button id="bold"><i class="fa fa-bold"></i></button>
+                    <button id="italic"><i class="fa fa-italic"></i></button>
+                    <button id="underline"><i class="fa fa-underline"></i></button>
                 </div>
                 
                 <div  id="msg">

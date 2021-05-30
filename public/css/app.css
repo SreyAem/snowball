@@ -78,8 +78,11 @@ main form{
 }
 .chatbox{
     padding: 0 50px;
-    height: 80vh;
+    height: 83vh;
+    overflow: scroll;
+    margin-bottom: 20px;
 }
+
 #message{
     display: flex;
     justify-content: space-between;
@@ -106,5 +109,44 @@ main form{
     margin-left: 0;
 }
 
+p{
+    font-size: 20px;
+    background-color: rgb(184, 115, 248);
+    padding: 10px;
+    line-break: auto;
+    max-width: 200px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-radius: 20px;
+       
+}
+.profile{
+    display: flex;
+    justify-content: center;
+}
+#profile{
+    margin: 20px;
+    border-radius: 90px;
+}
+span{
+    width: 100%;
+}
+.boxright{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.boxleft{
+    width: 100%;
+    display: flex;
+}
+
+#out{
+    text-align: center;
+
+}
+.label{
+    text-align: center;
+}
 
 

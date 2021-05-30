@@ -7,10 +7,8 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.static('public'));
 
-// app.get('/', (req, res) => res.send("Hello Project"));
-
 let users = [
-    {username: "A", password: "123"},
+    {username: "A", password: ""},
     {username: "B", password: "567"}
 ];
 
@@ -20,7 +18,6 @@ app.get('/users', (req, res) => res.send(users));
 app.get('/messages', (req, res) => res.send(messages));
 
 app.post('/users', (req, res) => {
-    console.log(req.body)
     let user = {
         username: req.body.username,
         password: req.body.password,
@@ -33,9 +30,12 @@ app.post('/users', (req, res) => {
 app.post('/messages', (req, res) => {
     let message = {
         username: req.body.username,
-        text: req.body.text
+        text: req.body.text,
+        bold: req.body.bold,
+        italic: req.body.italic,
+        underline: req.body.underline,
+        time: req.body.time
     };
     messages.push(message);
     res.send(messages);
 });
-
